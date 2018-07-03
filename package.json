@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@rematch/core": "^1.0.0-beta.4",
+    "@rematch/persist": "^1.0.2",
     "antd": "^3.1.4",
     "axios": "^0.17.1",
     "react": "^16.2.0",
@@ -11,9 +13,7 @@
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.9",
     "react-scripts": "^1.1.0",
-    "redux": "^3.7.2",
-    "redux-sessionstorage": "^0.4.0",
-    "redux-thunk": "^2.2.0"
+    "redux": "^3.7.2"
   },
   "scripts": {
     "start": "set HTTPS=false&&set PORT=3008&&react-app-rewired start",
@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "babel-plugin-import": "^1.6.3",
-    "react-app-rewired": "^1.4.0",
-    "react-app-rewire-less": "^2.1.0"
+    "react-app-rewire-less": "^2.1.0",
+    "react-app-rewired": "^1.4.0"
   }
 }

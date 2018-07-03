@@ -1,28 +1,48 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { push } from 'react-router-redux';
-import { Button, Row, Form, Input } from 'antd';
-// import { userAPIs } from '../../utils/apis';
+import { Button, Row, Form, Input, message } from 'antd';
+import { loginAPIs } from '../../utils/apis';
 // import dateFormat from '../../utils/dateFormat';
+import { dispatch } from '../../index';
+
 const FormItem = Form.Item;
 
 class LoginPage extends Component {
   constructor(props, context) {
     super(props, context);
-    this.state = {
-      
-    };
-  }
-  componentWillMount() {
-
   }
   handleOk = () => {
-    console.log('a');
-    const formValue = this.props.form.getFieldsValue();
-    if (formValue.username === 'admin' && formValue.password === 'admin') {
-      this.props.dispatch(push('/homepage'));
+    const { form } = this.props;
+    const formValue = form.getFieldsValue();
+    const validateData = {
+      username: '请输入用户名',
+      password: '请输入密码',
     }
+    for (let key in validateData) {
+      if (!formValue[key]) {
+        message.error(validateData[key]);
+        return;
+      }
+    }
+    this.onLoginMethodFetch(formValue.username, formValue.password);
   }
+  
+  onLoginMethodFetch = (name, psd) => {
+    const { history } = this.props;
+    loginAPIs.LOGIN({
+      username: name,
+      password: psd
+    })
+    .then((res) => {
+      console.log(res)
+      dispatch.user.updateUsername(res.data.username);
+      history.push('/homepage');
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
   render() {
     const { getFieldDecorator } = this.props.form;
     return (

@@ -18,7 +18,7 @@ class UserManage extends Component {
       staticConfData: {},
     };
   }
-  componentWillMount() {
+  componentDidMount() {
     const { pNum } = this.state;
     this.onListUser(pNum);
   }

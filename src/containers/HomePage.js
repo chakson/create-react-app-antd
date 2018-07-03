@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { push } from 'react-router-redux';
 import { Route } from 'react-router-dom';
 import { Layout, Menu, Icon } from 'antd';
 // import { userAPIs } from '../utils/apis';
@@ -20,7 +19,7 @@ class HomePage extends Component {
     });
   }
   render() {
-    const { match, location } = this.props;
+    const { match, location, history } = this.props;
     const routeUrls = [
       { key: 'usermanage', name: '用户管理', icon: 'user' },
       { key: 'devicemanage', name: '设备管理', icon: 'tool' },
@@ -37,7 +36,7 @@ class HomePage extends Component {
           <Menu
             theme="dark"
             mode="inline"
-            onClick={({ key }) => this.props.dispatch(push(key))}
+            onClick={({ key }) => history.push(key)}
             selectedKeys={[location.pathname]}            
             defaultSelectedKeys={['1']}
           >
