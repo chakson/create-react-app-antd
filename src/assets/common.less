@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+}
+.scroll-smooth {
+  -webkit-overflow-scrolling: touch;
+}
+
+input, textarea {
+  -webkit-user-select: auto; /*webkit浏览器*/
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #f5f5f9 !important;
+  color: rgba(0,0,0,.65);
+  line-height: 1.5;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+ul, li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+// 清除浮动
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.div-hide {
+  display: none;
+}
+a {
+  color: #eb6120;
+}
+/*暂无数据页面*/
+.page-no-data {
+	width: 400px;
+	margin: 0 auto;
+	padding-top: 80px;
+	.img {
+		width: 400px;
+		height: 245px;
+		background: url("./images/noPage.png");
+		background-repeat: no-repeat;
+	}
+	.txt {
+		font-size: 18px;
+		color: #939393;
+		text-align: center;
+	}
+}
+// @import '~antd/dist/antd.css';
+@import "./style/theme.less";// 用于覆盖上面定义的变量
+@import './iconfont/iconfont.css';
+@import './style/antcustom.less';
+@import './style/login.less';
+@import './style/index.less';
